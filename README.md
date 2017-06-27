@@ -14,6 +14,8 @@ In the course of making this i have managed to learn the following things:
 
 -What angular templates(*ngFor, *ngIf e.g) and {{}} are and how to use them.
 
+-I also saw the sass variables on the docs but i didn't need them?
+
 -More stuff that i cannot remember/am aware right now.
 
 Main Problems
@@ -30,4 +32,5 @@ with what i already know(of course stackoverflow/ionic-forums/youtube are always
 !!Notice!!
 This was designed for Android Mobile Devices, so you will notice things 
 if you make the view size bigger.
-(It probably works on IOS devices as well if you got the tools to build it).
+(There are also some css rules specific for IOS so it appears the same
+way for the most part-if you want to run it on IOS).
