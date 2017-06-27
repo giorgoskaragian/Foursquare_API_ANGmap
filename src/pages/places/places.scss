@@ -1,0 +1,36 @@
+﻿page-places {
+  ion-searchbar.searchbar-ios {
+    border-radius: 10px;
+  }
+
+  ion-searchbar {
+    border-radius: 10px;
+  }
+
+  h2 {
+    font-weight: bold;
+    color: #000;
+    font-size: 18px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .typer {
+    margin-top: 7px !important;
+    float: right;
+    font-size: 12px;
+    color: #808080;
+  }
+
+  ion-title ion-icon {
+    float: right;
+  }
+
+  ion-list > button {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  ion-select {
+    flex: 2;
+    justify-content: center;
+  }
+}

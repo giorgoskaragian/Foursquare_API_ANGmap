@@ -1,0 +1,45 @@
+﻿<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>
+      {{item.venue.name}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-card *ngIf="item.venue.photos.count>0">
+    <img src="{{item.venue.photos.groups['0'].items['0'].prefix}}360{{item.venue.photos.groups['0'].items['0'].suffix}}" />
+    <ion-card-content>
+      <ion-card-title>
+        {{item.venue.name}}
+        <div class="geoloc">
+          <button (click) ="openMap()"></button>
+        </div>
+        <div class="rating">
+          <p *ngIf="item.venue.rating < 4.0">
+            <ion-badge color="danger">{{item.venue.rating}}</ion-badge> - {{item.venue.ratingSignals}} Ratings
+          </p>
+          <p *ngIf="item.venue.rating >= 4.0 && item.venue.rating < 7.0">
+            <ion-badge color="mediumr">{{item.venue.rating}}</ion-badge> - {{item.venue.ratingSignals}} Ratings
+          </p>
+          <p *ngIf="item.venue.rating >= 7.0">
+            <ion-badge color="secondary">{{item.venue.rating}}</ion-badge> - {{item.venue.ratingSignals}} Ratings
+          </p>
+        </div>
+        <div class="price" *ngIf="item.venue.price">
+          <p>
+            <ion-badge color="mediumr" *ngFor="let price of price_tier">{{price}}</ion-badge>
+          </p>
+        </div>
+      </ion-card-title>
+      <div class="price" *ngIf="item.tips">
+        <p>
+          <ion-badge><ion-icon name="chatboxes"></ion-icon></ion-badge>
+          {{(item.tips['0'].text | slice: 0:150) + (item.tips['0'].text.length > 150 ? '...' : '')}}
+        </p>
+      </div>
+      <ion-item>
+        <a ion-button target="_blank" block href="https://foursquare.com/v/{{item.venue.name}}/{{item.venue.id}}">View on Foursquare</a>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

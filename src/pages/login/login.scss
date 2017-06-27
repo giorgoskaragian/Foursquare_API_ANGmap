@@ -1,0 +1,27 @@
+﻿page-login {
+  .startingBG {
+    background: url('../assets/bg.png') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  ion-searchbar.searchbar-ios {
+    border-radius: 10px;
+    margin-top: 80%;
+  }
+
+  .searchbar-ios .searchbar-input {
+    background-color: #ffffff;
+  }
+
+  ion-searchbar {
+    margin-top: 80%;
+  }
+
+  .searchbar-ios .searchbar-input {
+    background-color: #ffffff;
+  }
+
+  #madeBy {
+    background: rgba(0, 0, 0, 0.00);
+  }
+}

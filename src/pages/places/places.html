@@ -1,0 +1,57 @@
+﻿<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>Places </ion-title>
+      <ion-buttons right>
+        <button ion-button icon-only (click)="openSettings()"> <ion-icon name="settings"></ion-icon></button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+        <ion-searchbar placeholder="City Search" [(ngModel)]="searchQuery" (change)="getCity($event)" autocorrect="off"></ion-searchbar>
+        <ion-item no-lines>
+          <ion-select [(ngModel)]="category" (ionChange)="getCategory(category)" name="category">
+            <ion-option value="topPicks" selected="true" >Top Picks</ion-option>
+            <ion-option value="trending">Trending</ion-option>
+            <ion-option value="food">Food</ion-option>
+            <ion-option value="drinks">Drinks</ion-option>
+            <ion-option value="coffee">Coffee</ion-option>
+            <ion-option value="shops">Shops</ion-option>
+            <ion-option value="arts">Arts</ion-option>
+            <ion-option value="outdoors">Outdoors</ion-option>
+            <ion-option value="sights">Sights</ion-option>
+            <ion-option value="specials">Specials</ion-option>
+          </ion-select>
+          <ion-select [(ngModel)]="limit" (ionChange)="getLimit(limit)" name="limit">
+            <ion-option value="5" selected="true">5</ion-option>
+            <ion-option value="10">10</ion-option>
+            <ion-option value="25">25</ion-option>
+          </ion-select>
+        </ion-item>
+
+    <ion-list no-lines>
+      <button ion-item *ngFor="let item of items" (click)="viewItem(item)">
+        <ion-thumbnail *ngIf="item.venue.photos.count > 0" item-start>
+          <img src="{{item.venue.photos.groups['0'].items['0'].prefix}}88{{item.venue.photos.groups['0'].items['0'].suffix}}" />
+        </ion-thumbnail>
+        <ion-thumbnail *ngIf="item.venue.photos.count == 0" item-start>
+          <img src="{{item.venue.categories['0'].icon.prefix}}bg_32{{item.venue.categories['0'].icon.suffix}}" />
+        </ion-thumbnail>
+        <h2> {{item.venue.name}}  </h2>
+
+        <p *ngIf="item.venue.rating < 4.0">
+          <ion-badge color="danger">{{item.venue.rating}}</ion-badge> - {{item.venue.ratingSignals}} Ratings
+        </p>
+        <p *ngIf="item.venue.rating >= 4.0 && item.venue.rating < 7.0">
+          <ion-badge color="mediumr">{{item.venue.rating}}</ion-badge> - {{item.venue.ratingSignals}} Ratings
+        </p>
+        <p *ngIf="item.venue.rating >= 7.0">
+          <ion-badge color="secondary">{{item.venue.rating}}</ion-badge> - {{item.venue.ratingSignals}} Ratings
+        </p>
+        <div class="typer" *ngIf="item.venue.categories['0'].shortName && item.venue.price">{{item.venue.price.message}} {{item.venue.categories['0'].shortName}}</div>
+      </button>
+    </ion-list>
+
+</ion-content>

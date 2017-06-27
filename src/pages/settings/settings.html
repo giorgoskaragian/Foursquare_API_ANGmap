@@ -1,0 +1,50 @@
+﻿<ion-header>
+  <ion-navbar color="secondary">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="closeSettings()"> <ion-icon name="arrow-back"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+      <ion-row>
+        <ion-item>
+          <ion-label> Category </ion-label>
+          <ion-select [(ngModel)]="category" (ionChange)="getCategory(category)">
+            <ion-option value="topPicks" selected="true">Top Picks</ion-option>
+            <ion-option value="trending">Trending</ion-option>
+            <ion-option value="food">Food</ion-option>
+            <ion-option value="drinks">Drinks</ion-option>
+            <ion-option value="coffee">Coffee</ion-option>
+            <ion-option value="shops">Shops</ion-option>
+            <ion-option value="arts">Arts</ion-option>
+            <ion-option value="outdoors">Outdoors</ion-option>
+            <ion-option value="sights">Sights</ion-option>
+            <ion-option value="specials">Specials</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-item>
+          <ion-label> Limit </ion-label>
+          <ion-select [(ngModel)]="limit" (ionChange)="getLimit(limit)">
+            <ion-option value="5" selected="true">5</ion-option>
+            <ion-option value="10">10</ion-option>
+            <ion-option value="25">25</ion-option>
+          </ion-select>
+        </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button color="danger" block (click)="closeSettings()">Cancel</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block (click)="setDefaults()">Save Changes</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
