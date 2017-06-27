@@ -14,6 +14,9 @@ In the course of making this i have managed to learn the following things:
 
 -What angular templates(*ngFor, *ngIf e.g) and {{}} are and how to use them.
 
+-I am also aware of the flex properties they have but i chose to spend
+my time on the above.(I already know how flexbox works)
+
 -I also saw the sass variables on the docs but i didn't need them?
 
 -More stuff that i cannot remember/am aware right now.
